@@ -1,0 +1,44 @@
+Fine-Tuning Report – Named Entity Recognition (NER) using SFT
+
+ Project Notebook: data_extraction_ner_sft_dpo.ipynb
+Location: /tensorzero/examples/data-extraction-ner-sft-dpo/
+
+ Author: Luwam Habtu
+ Date: [08/02/2025]
+
+
+ Objective:
+To fine-tune OpenAI's gpt-4o-mini-2024-07-18 model using Supervised Fine-Tuning (SFT) for a Named Entity Recognition task. The model is trained to extract named entities such as persons, organizations, locations, events, and dates from natural language sentences and return them in a structured JSON format.
+
+
+ Steps Completed:
+
+1. ✅ Created a training file `sft.jsonl` with at least 10 examples in the correct `"messages"` format required for chat-based models.
+2. ✅ Converted existing `prompt`/`completion` pairs to `"messages"` format using roles (`user`, `assistant`).
+3. ✅ Validated the format and saved the file to:
+   `/tensorzero/examples/data-extraction-ner-sft-dpo/sft.jsonl`
+4. ✅ Uploaded the training file to OpenAI using `openai.File.create(...)`.
+5. ✅ Launched the fine-tuning job with `client.fine_tuning.jobs.create(...)` using model `gpt-4o-mini-2024-07-18`.
+6. ✅ Monitored the job using `client.fine_tuning.jobs.retrieve(...)`.
+7. ✅ Status: **Succeeded** — Fine-tuning completed successfully. The model was tested using multiple prompts and returned accurate structured outputs.
+
+
+ Model Used:
+Model: `gpt-4o-mini-2024-07-18`
+Training Examples: 10
+Training Format: Chat-style JSONL (`messages` key)
+
+
+ Example Training Input:
+
+```json
+{
+  "messages": [
+    {"role": "user", "content": "Extract entities from: Elon Musk founded SpaceX in California."},
+    {"role": "assistant", "content": "{\"person\": [\"Elon Musk\"], \"organization\": [\"SpaceX\"], \"location\": [\"California\"]}"}
+  ]
+}
+
+Example Training outputs:
+
+🤖 Model Output: {"person": ["Elon Musk"], "organization": ["SpaceX"], "location": ["California"]}

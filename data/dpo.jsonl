@@ -1,0 +1,3 @@
+{"prompt": "Extract entities from: Elon Musk founded SpaceX in California.", "chosen": "{\"person\": [\"Elon Musk\"], \"organization\": [\"SpaceX\"], \"location\": [\"California\"]}", "rejected": "{\"person\": [], \"organization\": [], \"location\": []}"}
+{"prompt": "Extract entities from: Serena Williams won Wimbledon in 2016.", "chosen": "{\"person\": [\"Serena Williams\"], \"event\": [\"Wimbledon\"], \"date\": [\"2016\"]}", "rejected": "{\"person\": [\"Serena\"], \"event\": [], \"date\": []}"}
+{"prompt": "Extract entities from: Barack Obama was born in Hawaii.", "chosen": "{\"person\": [\"Barack Obama\"], \"location\": [\"Hawaii\"]}", "rejected": "{\"person\": [], \"location\": []}"}
